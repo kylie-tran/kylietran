@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Sustainable Finance Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #2d5a3d 0%, #3d7a52 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #a8dabc;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3d7a52 0%, #5a9f73 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .hero .major {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            color: #2d5a3d;
+            font-weight: 700;
+        }
+
+        /* About Section */
+        #about {
+            background: #f7fafc;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #4a5568;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content strong {
+            color: #2d5a3d;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(45, 90, 61, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #e2e8f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(45, 90, 61, 0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: #e6f4ea;
+            color: #2d5a3d;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-content h3 {
+            color: #2d5a3d;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .project-content p {
+            color: #4a5568;
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #3d7a52;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: #2d5a3d;
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, #2d5a3d 0%, #3d7a52 100%);
+            color: white;
+        }
+
+        #contact h2 {
+            color: white;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-intro {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .contact-item {
+            margin: 1.8rem 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item a {
+            color: #a8dabc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a3025;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h1>Portfolio</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://via.placeholder.com/200" alt="Your Photo">
+        <h2>Your Name</h2>
+        <p class="subtitle">Sustainable Finance Student</p>
+        <p class="major">Major: Finance & Sustainability | University Name</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>
+                    Hello! I'm <strong>[Your Name]</strong>, currently studying <strong>[Your Major]</strong> at <strong>[Your University]</strong>. 
+                    I'm passionate about sustainable finance and responsible investing, believing that financial decisions can drive positive environmental and social change.
+                </p>
+                <p>
+                    My focus areas include ESG (Environmental, Social, and Governance) investing, green bonds, impact investing, 
+                    and sustainable development finance. I'm particularly interested in how financial institutions can integrate 
+                    sustainability principles into their investment strategies.
+                </p>
+                <p>
+                    Through my coursework and personal projects, I've developed skills in financial analysis, data visualization, 
+                    and web development. I'm eager to contribute to organizations that prioritize both profitability and planet-positive impact.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x220/3d7a52/ffffff?text=ESG+Analysis" alt="ESG Investment Analysis">
+                    <div class="project-content">
+                        <span class="project-tag">ESG Analysis</span>
+                        <h3>ESG Investment Portfolio Analyzer</h3>
+                        <p>
+                            Developed a web-based tool to analyze and compare ESG scores of different investment portfolios. 
+                            The tool evaluates environmental impact, social responsibility, and corporate governance metrics 
+                            to help investors make informed sustainable investment decisions.
+                        </p>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x220/5a9f73/ffffff?text=Green+Finance" alt="Green Bond Dashboard">
+                    <div class="project-content">
+                        <span class="project-tag">Green Finance</span>
+                        <h3>Green Bond Market Dashboard</h3>
+                        <p>
+                            Created an interactive dashboard tracking global green bond issuances and market trends. 
+                            Features include real-time data visualization, sector analysis, and impact metrics showing 
+                            how green bonds contribute to climate change mitigation and sustainable development goals.
+                        </p>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x220/2d5a3d/ffffff?text=Impact+Investing" alt="Impact Investment Calculator">
+                    <div class="project-content">
+                        <span class="project-tag">Impact Investing</span>
+                        <h3>Sustainable Impact Investment Calculator</h3>
+                        <p>
+                            Built a calculator that helps users understand the environmental and social impact of their investments. 
+                            Users can input their portfolio and see estimated CO2 reduction, clean energy generation, 
+                            and social benefits aligned with UN Sustainable Development Goals (SDGs).
+                        </p>
+                        <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-info">
+                <p class="contact-intro">
+                    I'm always open to discussing sustainable finance opportunities, collaborations, or just connecting with like-minded individuals!
+                </p>
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <a href="mailto:your.email@example.com">your.email@example.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>GitHub</strong>
+                    <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
+                </div>
+                <div class="contact-item">
+                    <strong>LinkedIn</strong>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Phone</strong>
+                    <span>+1 (XXX) XXX-XXXX</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Your Name. Building a sustainable financial future.</p>
+    </footer>
+</body>
+</html>
