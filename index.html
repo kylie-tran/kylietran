@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Sustainable Finance Portfolio</title>
+    <title>Huong Tra (Kylie) - Sustainable Finance Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -15,6 +15,12 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #2d3748;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
         }
 
         /* Navigation */
@@ -26,6 +32,18 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         nav .container {
@@ -51,12 +69,24 @@
         nav a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
             font-weight: 500;
+            position: relative;
         }
 
-        nav a:hover {
-            color: #a8dabc;
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #a8dabc;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
@@ -65,6 +95,44 @@
             color: white;
             padding: 5rem 2rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🌱';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.1;
+            top: -3rem;
+            right: -3rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero img {
@@ -75,11 +143,16 @@
             border: 5px solid white;
             margin-bottom: 2rem;
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .hero img:hover {
+            transform: scale(1.05) rotate(2deg);
         }
 
         .hero h2 {
             font-size: 2.8rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             font-weight: 700;
         }
 
@@ -93,6 +166,26 @@
             font-size: 1.1rem;
             opacity: 0.9;
             font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-button {
+            display: inline-block;
+            background: white;
+            color: #2d5a3d;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .cv-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+            background: #a8dabc;
         }
 
         /* Container */
@@ -105,6 +198,16 @@
         /* Sections */
         section {
             padding: 4rem 2rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         section h2 {
@@ -113,6 +216,22 @@
             text-align: center;
             color: #2d5a3d;
             font-weight: 700;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #3d7a52, #a8dabc);
+            border-radius: 2px;
         }
 
         /* About Section */
@@ -130,15 +249,225 @@
 
         .about-content p {
             margin-bottom: 1.5rem;
+            animation: fadeInLeft 0.8s ease-out;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .about-content strong {
             color: #2d5a3d;
         }
 
+        /* Education Section */
+        #education {
+            background: white;
+        }
+
+        .education-timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, #3d7a52, #a8dabc);
+        }
+
+        .education-item {
+            margin-bottom: 3rem;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .education-item:nth-child(odd) {
+            text-align: right;
+            padding-right: calc(50% + 2rem);
+        }
+
+        .education-item:nth-child(even) {
+            text-align: left;
+            padding-left: calc(50% + 2rem);
+        }
+
+        .education-item::before {
+            content: '🎓';
+            position: absolute;
+            top: 0;
+            font-size: 2rem;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .education-item:nth-child(odd)::before {
+            right: calc(50% - 1.5rem);
+        }
+
+        .education-item:nth-child(even)::before {
+            left: calc(50% - 1.5rem);
+        }
+
+        .education-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(45, 90, 61, 0.1);
+            border-left: 4px solid #3d7a52;
+            transition: all 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(45, 90, 61, 0.2);
+        }
+
+        .education-card h3 {
+            color: #2d5a3d;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .period {
+            color: #5a9f73;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card p {
+            color: #4a5568;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: #f7fafc;
+        }
+
+        .skills-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(45, 90, 61, 0.1);
+            transition: all 0.3s;
+            text-align: center;
+            animation: popIn 0.6s ease-out;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px) rotate(2deg);
+            box-shadow: 0 8px 20px rgba(45, 90, 61, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            color: #2d5a3d;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-bar {
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #3d7a52, #5a9f73);
+            border-radius: 10px;
+            transition: width 1s ease-out;
+        }
+
+        /* Certifications Section */
+        #certifications {
+            background: white;
+        }
+
+        .cert-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(45, 90, 61, 0.1);
+            border-top: 4px solid #3d7a52;
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(45, 90, 61, 0.2);
+        }
+
+        .cert-badge {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .cert-card h3 {
+            color: #2d5a3d;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            text-align: center;
+        }
+
+        .cert-card p {
+            color: #4a5568;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
         /* Projects Section */
         #projects {
-            background: white;
+            background: #f7fafc;
         }
 
         .projects-grid {
@@ -154,8 +483,9 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(45, 90, 61, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
             border: 2px solid #e2e8f0;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .project-card:hover {
@@ -167,6 +497,11 @@
             width: 100%;
             height: 220px;
             object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
         }
 
         .project-content {
@@ -202,12 +537,78 @@
             color: #3d7a52;
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s;
+            transition: all 0.3s;
         }
 
         .project-link:hover {
             color: #2d5a3d;
-            text-decoration: underline;
+            transform: translateX(5px);
+        }
+
+        /* Blog Section */
+        #blog {
+            background: white;
+        }
+
+        .blog-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(45, 90, 61, 0.1);
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(45, 90, 61, 0.2);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-date {
+            color: #5a9f73;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-content h3 {
+            color: #2d5a3d;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .blog-content p {
+            color: #4a5568;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .blog-link {
+            color: #3d7a52;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .blog-link:hover {
+            color: #2d5a3d;
         }
 
         /* Contact Section */
@@ -218,6 +619,10 @@
 
         #contact h2 {
             color: white;
+        }
+
+        #contact h2::after {
+            background: white;
         }
 
         .contact-info {
@@ -235,6 +640,7 @@
         .contact-item {
             margin: 1.8rem 0;
             font-size: 1.1rem;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .contact-item strong {
@@ -249,12 +655,13 @@
         .contact-item a {
             color: #a8dabc;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
         }
 
         .contact-item a:hover {
             color: white;
-            text-decoration: underline;
+            transform: translateX(5px);
+            display: inline-block;
         }
 
         /* Footer */
@@ -264,6 +671,13 @@
             text-align: center;
             padding: 2rem;
             opacity: 0.9;
+        }
+
+        footer p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         /* Responsive */
@@ -285,12 +699,28 @@
                 font-size: 1.1rem;
             }
 
-            .projects-grid {
+            .projects-grid,
+            .blog-grid,
+            .cert-grid {
                 grid-template-columns: 1fr;
             }
 
             section h2 {
                 font-size: 1.8rem;
+            }
+
+            .education-timeline::before {
+                left: 30px;
+            }
+
+            .education-item {
+                text-align: left !important;
+                padding-left: 80px !important;
+                padding-right: 0 !important;
+            }
+
+            .education-item::before {
+                left: 5px !important;
             }
         }
     </style>
@@ -299,10 +729,14 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <h1>Portfolio</h1>
+            <h1>🌿 Kylie's Portfolio</h1>
             <ul>
                 <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -310,10 +744,13 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <img src="https://via.placeholder.com/200" alt="Your Photo">
-        <h2>Your Name</h2>
-        <p class="subtitle">Sustainable Finance Student</p>
-        <p class="major">Major: Finance & Sustainability | University Name</p>
+        <div class="hero-content">
+            <img src="https://via.placeholder.com/200" alt="Huong Tra Photo">
+            <h2>Huong Tra (Kylie)</h2>
+            <p class="subtitle">Sustainable Finance Enthusiast</p>
+            <p class="major">Business Administration | Yuan Ze University</p>
+            <a href="#" class="cv-button">📄 Download My CV</a>
+        </div>
     </section>
 
     <!-- About Section -->
@@ -322,18 +759,107 @@
             <h2>About Me</h2>
             <div class="about-content">
                 <p>
-                    Hello! I'm <strong>[Your Name]</strong>, currently studying <strong>[Your Major]</strong> at <strong>[Your University]</strong>. 
-                    I'm passionate about sustainable finance and responsible investing, believing that financial decisions can drive positive environmental and social change.
+                    Hello! I'm <strong>Huong Tra</strong>, but you can call me <strong>Kylie</strong>! 🌟 I'm currently studying <strong>Business Administration</strong> at <strong>Yuan Ze University</strong> as an exchange student from Banking University of Ho Chi Minh City.
+                </p>
+                <p>
+                    I'm passionate about sustainable finance and responsible investing, believing that financial decisions can drive positive environmental and social change. My goal is to bridge the gap between traditional finance and sustainability practices.
                 </p>
                 <p>
                     My focus areas include ESG (Environmental, Social, and Governance) investing, green bonds, impact investing, 
                     and sustainable development finance. I'm particularly interested in how financial institutions can integrate 
-                    sustainability principles into their investment strategies.
+                    sustainability principles into their investment strategies and operations.
                 </p>
                 <p>
-                    Through my coursework and personal projects, I've developed skills in financial analysis, data visualization, 
-                    and web development. I'm eager to contribute to organizations that prioritize both profitability and planet-positive impact.
+                    Through my coursework and personal projects, I've developed strong analytical skills and technical proficiency in tools like Power BI, Excel, SAP, and Python. I'm eager to contribute to organizations that prioritize both profitability and planet-positive impact! 🌍
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <div class="education-card">
+                        <h3>Yuan Ze University</h3>
+                        <p class="period">Current Semester (Exchange Program)</p>
+                        <p><strong>Major:</strong> Business Administration</p>
+                        <p>Currently participating in an international exchange program, expanding my global perspective on business and finance.</p>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="education-card">
+                        <h3>Banking University of Ho Chi Minh City</h3>
+                        <p class="period">2 Years</p>
+                        <p><strong>Major:</strong> Business Administration</p>
+                        <p>Built a strong foundation in finance, banking operations, and business management with focus on sustainable finance practices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3>Financial Analysis</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📈</div>
+                    <h3>Power BI</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📑</div>
+                    <h3>Excel</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💼</div>
+                    <h3>SAP</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🐍</div>
+                    <h3>Python</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-badge">🏆</div>
+                    <h3>SAP Financials Essential Training</h3>
+                    <p>LinkedIn Learning</p>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-badge">📊</div>
+                    <h3>Finance & Quantitative Modeling for Analysts Specialization</h3>
+                    <p>Coursera</p>
+                </div>
             </div>
         </div>
     </section>
@@ -343,48 +869,78 @@
         <div class="container">
             <h2>My Projects</h2>
             <div class="projects-grid">
-                <!-- Project 1 -->
                 <div class="project-card">
                     <img src="https://via.placeholder.com/400x220/3d7a52/ffffff?text=ESG+Analysis" alt="ESG Investment Analysis">
                     <div class="project-content">
                         <span class="project-tag">ESG Analysis</span>
                         <h3>ESG Investment Portfolio Analyzer</h3>
                         <p>
-                            Developed a web-based tool to analyze and compare ESG scores of different investment portfolios. 
-                            The tool evaluates environmental impact, social responsibility, and corporate governance metrics 
-                            to help investors make informed sustainable investment decisions.
+                            Developed a comprehensive tool using Power BI and Python to analyze ESG scores of investment portfolios. 
+                            Evaluates environmental impact, social responsibility, and governance metrics to guide sustainable investment decisions.
                         </p>
                         <a href="#" class="project-link">View Project →</a>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
                 <div class="project-card">
                     <img src="https://via.placeholder.com/400x220/5a9f73/ffffff?text=Green+Finance" alt="Green Bond Dashboard">
                     <div class="project-content">
                         <span class="project-tag">Green Finance</span>
                         <h3>Green Bond Market Dashboard</h3>
                         <p>
-                            Created an interactive dashboard tracking global green bond issuances and market trends. 
-                            Features include real-time data visualization, sector analysis, and impact metrics showing 
-                            how green bonds contribute to climate change mitigation and sustainable development goals.
+                            Created an interactive Power BI dashboard tracking global green bond issuances and market trends. 
+                            Features real-time visualization, sector analysis, and impact metrics aligned with climate goals.
                         </p>
                         <a href="#" class="project-link">View Project →</a>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
                 <div class="project-card">
                     <img src="https://via.placeholder.com/400x220/2d5a3d/ffffff?text=Impact+Investing" alt="Impact Investment Calculator">
                     <div class="project-content">
                         <span class="project-tag">Impact Investing</span>
-                        <h3>Sustainable Impact Investment Calculator</h3>
+                        <h3>Sustainable Impact Calculator</h3>
                         <p>
-                            Built a calculator that helps users understand the environmental and social impact of their investments. 
-                            Users can input their portfolio and see estimated CO2 reduction, clean energy generation, 
-                            and social benefits aligned with UN Sustainable Development Goals (SDGs).
+                            Built an Excel-based calculator that quantifies environmental and social impact of investments. 
+                            Estimates CO2 reduction, clean energy generation, and alignment with UN SDGs for portfolio assessment.
                         </p>
                         <a href="#" class="project-link">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <div class="container">
+            <h2>Blog & Articles</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <img src="https://via.placeholder.com/400x180/3d7a52/ffffff?text=ESG+Blog" alt="ESG Blog">
+                    <div class="blog-content">
+                        <p class="blog-date">Coming Soon</p>
+                        <h3>The Rise of ESG Investing in Asia</h3>
+                        <p>Exploring how Environmental, Social, and Governance factors are reshaping investment strategies in Asian markets...</p>
+                        <a href="#" class="blog-link">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://via.placeholder.com/400x180/5a9f73/ffffff?text=Green+Finance" alt="Green Finance">
+                    <div class="blog-content">
+                        <p class="blog-date">Coming Soon</p>
+                        <h3>Green Bonds: Financing a Sustainable Future</h3>
+                        <p>Understanding how green bonds work and their role in funding climate-friendly projects worldwide...</p>
+                        <a href="#" class="blog-link">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="https://via.placeholder.com/400x180/2d5a3d/ffffff?text=Impact+Investing" alt="Impact Investing">
+                    <div class="blog-content">
+                        <p class="blog-date">Coming Soon</p>
+                        <h3>Impact Investing: Profit with Purpose</h3>
+                        <p>How investors can generate financial returns while creating positive social and environmental impact...</p>
+                        <a href="#" class="blog-link">Read More →</a>
                     </div>
                 </div>
             </div>
@@ -397,23 +953,19 @@
             <h2>Get In Touch</h2>
             <div class="contact-info">
                 <p class="contact-intro">
-                    I'm always open to discussing sustainable finance opportunities, collaborations, or just connecting with like-minded individuals!
+                    I'm always open to discussing sustainable finance opportunities, collaborations, internships, or just connecting with like-minded individuals! Let's create a better financial future together! 🌱
                 </p>
                 <div class="contact-item">
-                    <strong>Email</strong>
-                    <a href="mailto:your.email@example.com">your.email@example.com</a>
+                    <strong>📧 Email</strong>
+                    <a href="mailto:tranhuongtra2612@gmail.com">tranhuongtra2612@gmail.com</a>
                 </div>
                 <div class="contact-item">
-                    <strong>GitHub</strong>
-                    <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
+                    <strong>💼 LinkedIn</strong>
+                    <a href="https://www.linkedin.com/in/trahuongtranfinance/" target="_blank">linkedin.com/in/trahuongtranfinance</a>
                 </div>
                 <div class="contact-item">
-                    <strong>LinkedIn</strong>
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a>
-                </div>
-                <div class="contact-item">
-                    <strong>Phone</strong>
-                    <span>+1 (XXX) XXX-XXXX</span>
+                    <strong>📱 Phone</strong>
+                    <span>+84 377 709 312</span>
                 </div>
             </div>
         </div>
@@ -421,7 +973,8 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Your Name. Building a sustainable financial future.</p>
+        <p>© 2025 Huong Tra (Kylie). Building a sustainable financial future. 🌍💚</p>
     </footer>
 </body>
 </html>
+    
