@@ -18,12 +18,10 @@
             overflow-x: hidden;
         }
 
-        /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Navigation */
         nav {
             background: linear-gradient(135deg, #2d5a3d 0%, #3d7a52 100%);
             color: white;
@@ -89,7 +87,6 @@
             width: 100%;
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #3d7a52 0%, #5a9f73 100%);
             color: white;
@@ -188,14 +185,12 @@
             background: #a8dabc;
         }
 
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* Sections */
         section {
             padding: 4rem 2rem;
             animation: fadeIn 0.8s ease-out;
@@ -234,7 +229,6 @@
             border-radius: 2px;
         }
 
-        /* About Section */
         #about {
             background: #f7fafc;
         }
@@ -267,7 +261,6 @@
             color: #2d5a3d;
         }
 
-        /* Education Section */
         #education {
             background: white;
         }
@@ -353,7 +346,6 @@
             color: #4a5568;
         }
 
-        /* Skills Section */
         #skills {
             background: #f7fafc;
         }
@@ -418,7 +410,6 @@
             transition: width 1s ease-out;
         }
 
-        /* Certifications Section */
         #certifications {
             background: white;
         }
@@ -465,7 +456,6 @@
             font-size: 0.95rem;
         }
 
-        /* Projects Section */
         #projects {
             background: #f7fafc;
         }
@@ -493,15 +483,19 @@
             box-shadow: 0 12px 24px rgba(45, 90, 61, 0.2);
         }
 
-        .project-card img {
+        .project-icon {
             width: 100%;
             height: 220px;
-            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            background: linear-gradient(135deg, #3d7a52 0%, #5a9f73 100%);
             transition: transform 0.3s;
         }
 
-        .project-card:hover img {
-            transform: scale(1.1);
+        .project-card:hover .project-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .project-content {
@@ -545,7 +539,6 @@
             transform: translateX(5px);
         }
 
-        /* Blog Section */
         #blog {
             background: white;
         }
@@ -572,10 +565,30 @@
             box-shadow: 0 8px 20px rgba(45, 90, 61, 0.2);
         }
 
-        .blog-card img {
+        .blog-icon {
             width: 100%;
             height: 180px;
-            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            transition: transform 0.3s;
+        }
+
+        .blog-icon.green-1 {
+            background: linear-gradient(135deg, #3d7a52 0%, #5a9f73 100%);
+        }
+
+        .blog-icon.green-2 {
+            background: linear-gradient(135deg, #5a9f73 0%, #7ec99c 100%);
+        }
+
+        .blog-icon.green-3 {
+            background: linear-gradient(135deg, #2d5a3d 0%, #3d7a52 100%);
+        }
+
+        .blog-card:hover .blog-icon {
+            transform: scale(1.05);
         }
 
         .blog-content {
@@ -611,7 +624,6 @@
             color: #2d5a3d;
         }
 
-        /* Contact Section */
         #contact {
             background: linear-gradient(135deg, #2d5a3d 0%, #3d7a52 100%);
             color: white;
@@ -664,7 +676,6 @@
             display: inline-block;
         }
 
-        /* Footer */
         footer {
             background: #1a3025;
             color: white;
@@ -680,7 +691,6 @@
             gap: 0.5rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             nav .container {
                 flex-direction: column;
@@ -726,7 +736,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="container">
             <h1>🌿 Kylie's Portfolio</h1>
@@ -742,22 +751,16 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <!-- 🖼️ ẢNH CỦA KYLIE -->
             <img src="https://i.postimg.cc/x1hvgxky/IMG-1146.jpg" alt="Huong Tra (Kylie) Photo">
-            
             <h2>Huong Tra (Kylie) 🌸</h2>
             <p class="subtitle">Sustainable Finance Enthusiast</p>
             <p class="major">Business Administration | Yuan Ze University</p>
-            
-            <!-- 🔗 LINK CV CỦA KYLIE -->
             <a href="https://i.postimg.cc/C1qSkK3d/CV(English)Finance-Trainee-Huong-Tra-Tran-(2).png" target="_blank" class="cv-button">📄 Download My CV</a>
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
@@ -780,7 +783,6 @@
         </div>
     </section>
 
-    <!-- Education Section -->
     <section id="education">
         <div class="container">
             <h2>Education</h2>
@@ -796,7 +798,7 @@
                 <div class="education-item">
                     <div class="education-card">
                         <h3>Banking University of Ho Chi Minh City</h3>
-                        <p class="period">2 Years</p>
+                        <p class="period">3 Years</p>
                         <p><strong>Major:</strong> Business Administration</p>
                         <p>Built a strong foundation in finance, banking operations, and business management with focus on sustainable finance practices.</p>
                     </div>
@@ -805,7 +807,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills">
         <div class="container">
             <h2>Skills & Expertise</h2>
@@ -849,7 +850,6 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
     <section id="certifications">
         <div class="container">
             <h2>Certifications</h2>
@@ -868,13 +868,12 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
         <div class="container">
             <h2>My Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/400x220/3d7a52/ffffff?text=ESG+Analysis" alt="ESG Investment Analysis">
+                    <div class="project-icon">📊</div>
                     <div class="project-content">
                         <span class="project-tag">ESG Analysis</span>
                         <h3>ESG Investment Portfolio Analyzer</h3>
@@ -887,7 +886,7 @@
                 </div>
 
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/400x220/5a9f73/ffffff?text=Green+Finance" alt="Green Bond Dashboard">
+                    <div class="project-icon" style="background: linear-gradient(135deg, #5a9f73 0%, #7ec99c 100%);">💚</div>
                     <div class="project-content">
                         <span class="project-tag">Green Finance</span>
                         <h3>Green Bond Market Dashboard</h3>
@@ -900,7 +899,7 @@
                 </div>
 
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/400x220/2d5a3d/ffffff?text=Impact+Investing" alt="Impact Investment Calculator">
+                    <div class="project-icon" style="background: linear-gradient(135deg, #2d5a3d 0%, #4a8c5f 100%);">🌱</div>
                     <div class="project-content">
                         <span class="project-tag">Impact Investing</span>
                         <h3>Sustainable Impact Calculator</h3>
@@ -915,13 +914,12 @@
         </div>
     </section>
 
-    <!-- Blog Section -->
     <section id="blog">
         <div class="container">
             <h2>Blog & Articles</h2>
             <div class="blog-grid">
                 <div class="blog-card">
-                    <img src="https://via.placeholder.com/400x180/3d7a52/ffffff?text=ESG+Blog" alt="ESG Blog">
+                    <div class="blog-icon green-1">📈</div>
                     <div class="blog-content">
                         <p class="blog-date">Coming Soon</p>
                         <h3>The Rise of ESG Investing in Asia</h3>
@@ -930,7 +928,7 @@
                     </div>
                 </div>
                 <div class="blog-card">
-                    <img src="https://via.placeholder.com/400x180/5a9f73/ffffff?text=Green+Finance" alt="Green Finance">
+                    <div class="blog-icon green-2">🌿</div>
                     <div class="blog-content">
                         <p class="blog-date">Coming Soon</p>
                         <h3>Green Bonds: Financing a Sustainable Future</h3>
@@ -939,7 +937,7 @@
                     </div>
                 </div>
                 <div class="blog-card">
-                    <img src="https://via.placeholder.com/400x180/2d5a3d/ffffff?text=Impact+Investing" alt="Impact Investing">
+                    <div class="blog-icon green-3">💼</div>
                     <div class="blog-content">
                         <p class="blog-date">Coming Soon</p>
                         <h3>Impact Investing: Profit with Purpose</h3>
@@ -951,7 +949,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <h2>Get In Touch</h2>
@@ -975,10 +972,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>© 2025 Huong Tra (Kylie). Building a sustainable financial future. 🌍💚</p>
     </footer>
 </body>
 </html>
-    
